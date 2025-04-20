@@ -1,0 +1,41 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+@model IEnumerable<MovieSearchAPI.Models.Movie>
+
+@{
+    ViewData["Title"] = "Rezultati i Kërkimit";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form method="get" asp-controller="Search" asp-action="Index">
+    <input type="text" name="query" placeholder="Kërko film..." value="@Context.Request.Query["query"]" />
+    <button type="submit">Kërko</button>
+</form>
+
+@if (!Model.Any())
+{
+    <p style="color:gray">Nuk u gjet asnjë film me këtë kërkim.</p>
+}
+else
+{
+    <div class="movie-list">
+        @foreach (var movie in Model)
+        {
+            <div class="movie-list-item" style="margin-bottom: 20px;">
+                <img src="@movie.ImageUrl" alt="@movie.Title" style="width: 200px; border-radius: 10px;" />
+                <h4>@movie.Title</h4>
+                <p>@movie.Description</p>
+                <small><i>@movie.Genre</i></small>
+            </div>
+        }
+    </div>
+}
+

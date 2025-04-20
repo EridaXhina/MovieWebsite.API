@@ -1,0 +1,16 @@
+
+    {
+        "profiles": {
+            "MovieSearchAPI_SQL_Backend": {
+                "commandName": "Project",
+                "dotnetRunMessages": true,
+                "launchBrowser": true,
+                "applicationUrl": "https://localhost:7101;http://localhost:5101",
+                "environmentVariables": {
+                    "ASPNETCORE_ENVIRONMENT": "Development"
+                }
+            }
+        }
+    }
+
+
